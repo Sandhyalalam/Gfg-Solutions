@@ -1,0 +1,20 @@
+class GfG {
+
+    private static int gcd(int a, int b) {
+        if (b == 0)
+            return a;
+        return gcd(b, a % b);
+    }
+
+    public static void addFraction(int num1, int den1, int num2, int den2) {
+
+        int numerator = num1 * den2 + num2 * den1;
+        int denominator = den1 * den2;
+
+        int g = gcd(numerator, denominator);
+        numerator /= g;
+        denominator /= g;
+
+        System.out.println(numerator + "/" + denominator);
+    }
+}
