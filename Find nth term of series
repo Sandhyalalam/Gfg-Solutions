@@ -1,0 +1,11 @@
+
+class Solution {
+    static int findNthTerm(int n) {
+        
+         int result = n * (n + 1) / 2;
+         
+         return result;
+    }
+    
+    
+};
