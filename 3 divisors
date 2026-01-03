@@ -1,0 +1,36 @@
+class Solution {
+    static ArrayList<Integer> threeDivisors(ArrayList<Long> query, int q) {
+
+        int MAX = 1000000; // sqrt(10^12)
+        boolean[] prime = new boolean[MAX + 1];
+        Arrays.fill(prime, true);
+        prime[0] = prime[1] = false;
+
+        // Sieve of Eratosthenes
+        for (int i = 2; i * i <= MAX; i++) {
+            if (prime[i]) {
+                for (int j = i * i; j <= MAX; j += i) {
+                    prime[j] = false;
+                }
+            }
+        }
+
+        // Prefix prime count
+        int[] primeCount = new int[MAX + 1];
+        for (int i = 1; i <= MAX; i++) {
+            primeCount[i] = primeCount[i - 1];
+            if (prime[i]) primeCount[i]++;
+        }
+
+        ArrayList<Integer> result = new ArrayList<>();
+
+        // Process each query
+        for (long n : query) {
+            int limit = (int) Math.sqrt(n);
+            result.add(primeCount[limit]);
+        }
+
+        return result;
+    }
+}
+
