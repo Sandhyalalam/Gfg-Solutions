@@ -1,0 +1,17 @@
+
+class Sol {
+    int divisibleBy4(String N) {
+        // Your Code Here
+    int len = N.length();
+    int num;
+    
+    if (len == 1) {
+        num = N.charAt(0) - '0';
+    } else {
+        num = (N.charAt(len - 2) - '0') * 10 
+              + (N.charAt(len - 1) - '0');
+    }
+    
+    return (num % 4 == 0) ? 1 : 0;
+    }
+}
