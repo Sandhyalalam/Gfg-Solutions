@@ -1,0 +1,35 @@
+class Solution {
+    public String calculateFraction(int a, int b) {
+        if (a % b == 0) {
+            return String.valueOf(a / b);
+        }
+
+        StringBuilder result = new StringBuilder();
+
+        result.append(a / b);
+        result.append(".");
+
+        java.util.Map<Integer, Integer> map = new java.util.HashMap<>();
+
+        int remainder = a % b;
+        int idx = result.length();
+
+        while (remainder != 0) {
+            
+            if (map.containsKey(remainder)) {
+                int start = map.get(remainder);
+                result.insert(start, "(");
+                result.append(")");
+                return result.toString();
+            }
+
+      
+            map.put(remainder, idx++);
+
+            remainder *= 10;
+            result.append(remainder / b);
+            remainder %= b;
+        }
+        return result.toString();
+    }
+}
