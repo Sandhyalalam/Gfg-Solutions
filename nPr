@@ -1,0 +1,9 @@
+class Solution{
+    static Long nPr(Long n , Long r){
+        long fact = 1;
+        for(long i = n; i > n - r; i--){
+            fact *= i;
+        }
+        return fact;
+    }
+}
