@@ -1,0 +1,18 @@
+class Solution {
+    static String decToBinary(int n) {
+        // code here
+        if (n == 0) {
+            return "0";
+        }
+
+        StringBuilder binary = new StringBuilder();
+
+        while (n > 0) {
+            binary.append(n % 2);
+            n = n / 2;
+        }
+
+        return binary.reverse().toString();
+        
+    }
+}
