@@ -1,0 +1,12 @@
+// User function Template for Java
+class Solution {
+    static ArrayList<Integer> getTable(int n) {
+         ArrayList<Integer> Table = new ArrayList<>();
+        // code here
+        for(int i=1;i<=10;i++)
+        {
+           Table.add(n*i);
+        }
+        return Table;
+    }
+}
